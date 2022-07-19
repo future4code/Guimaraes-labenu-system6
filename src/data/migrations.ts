@@ -31,7 +31,7 @@ const createTables = () => connection
          id VARCHAR(255) PRIMARY KEY,
          nome VARCHAR(255) NOT NULL,   
          email VARCHAR(255) DEFAULT 0,
-         data_nasc VARCHAR(255),
+         data_nasc DATE NOT NULL,
          turma_id VARCHAR(255) NOT NULL,
          FOREIGN KEY(turma_id) REFERENCES LabeSystem_turma(id) 
       );
@@ -40,7 +40,7 @@ const createTables = () => connection
          id VARCHAR(255) PRIMARY KEY,
          nome VARCHAR(255) NOT NULL,   
          email VARCHAR(255) DEFAULT 0,
-         data_nasc VARCHAR(255),
+         data_nasc DATE NOT NULL,
          turma_id VARCHAR(255) NOT NULL,
          FOREIGN KEY(turma_id) REFERENCES LabeSystem_turma(id) 
       );
