@@ -1,0 +1,32 @@
+[
+	{
+		"id":1,
+		"nome": "Amanda",
+		"modulo": "3"
+	},
+	{
+		"id":2,
+		"nome": "João",
+		"modulo": "2"
+	},
+    {
+		"id":3,
+		"nome": "Daniel",
+		"modulo": "5"
+	},    
+	{
+		"id":4,
+		"nome": "Pedro",
+		"modulo": "3"
+	},    
+	{
+		"id":5,
+		"nome": "Mariana",
+		"modulo": "2"
+	},    
+	{
+		"id":6,
+		"nome": "Elisa",
+		"modulo": "5"
+	}
+]

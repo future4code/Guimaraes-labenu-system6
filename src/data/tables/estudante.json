@@ -1,0 +1,23 @@
+[
+	{
+		"id":1,
+		"nome": "Amanda",
+		"email": "amanda@gmail.com",
+        "data_nasc":"1991-07-05",
+        "turma_id":"1"
+	},
+	{
+		"id":2,
+		"nome": "João",
+		"email": "joao@gmail.com",
+        "data_nasc":"1995-03-12",
+        "turma_id":"2"
+	},
+    {
+		"id":3,
+		"nome": "Daniel",
+		"email": "daniel@gmail.com",
+        "data_nasc":"2008-01-22",
+        "turma_id":"3"
+	}
+]
