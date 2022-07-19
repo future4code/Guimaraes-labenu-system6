@@ -1,0 +1,32 @@
+[
+	{
+		"id":1,
+		"nome": "Guimaraes",
+		"modulo": "3"
+	},
+	{
+		"id":2,
+		"nome": "Gebru",
+		"modulo": "5"
+	},
+    {
+		"id":3,
+		"nome": "Amaral",
+		"modulo": "1"
+	},    
+	{
+		"id":4,
+		"nome": "Banu",
+		"modulo": "2"
+	},    
+	{
+		"id":5,
+		"nome": "Duarte",
+		"modulo": "10"
+	},    
+	{
+		"id":6,
+		"nome": "Nogueira",
+		"modulo": "7"
+	}
+]
