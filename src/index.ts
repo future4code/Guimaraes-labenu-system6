@@ -3,6 +3,8 @@ import express, { Response, Request } from "express";
 import { criarId } from "./funcoes/criarId";
 import { Turma } from "./classes/Turma";
 import { criarTurma } from "./endpoints/criarTurma";
+import { buscarTurmas } from "./endpoints/buscarTurmas";
+import { editarTurmaDeModulo } from "./endpoints/editarTurmaDeModulo";
 
 // TESTAR CONEXÃO
 app.get('/ping', (req: Request, res: Response) => {
@@ -14,11 +16,13 @@ app.get('/ping', (req: Request, res: Response) => {
 })
 
 // BUSCAR TURMAS ATIVAS
-app.get('/turmas', async (req: Request, res: Response)=>{
+app.get('/turmas', async (req: Request, res: Response) => {
     let errorCode = 500
     try {
-        
-    } catch (err:any) {
+        const turmas = await buscarTurmas()
+
+        res.status(200).send(turmas)
+    } catch (err: any) {
         res.status(errorCode).end(err.message)
     }
 })
@@ -31,16 +35,36 @@ app.post('/turma', async (req: Request, res: Response) => {
 
         const { nome, modulo } = req.body
 
-        if(!nome || !modulo){
+        if (!nome || !modulo) {
             errorCode = 400
             throw new Error("Parâmetros não podem estar vazios.")
         }
 
-        const novaTurma = new Turma(nome,modulo)
+        const novaTurma = new Turma(nome, modulo)
 
         await criarTurma(id, novaTurma)
 
         res.status(200).send(`Turma ${novaTurma.nome} criada com sucesso!`)
+    } catch (err: any) {
+        res.status(errorCode).end(err.message)
+    }
+})
+
+// EDITAR TURMA DE MODULO
+app.put('/turma/:id', async (req: Request, res: Response) => {
+    let errorCode = 500
+    try {
+        const id = Number(req.params.id)
+        const novoModulo = req.body.modulo
+
+        if (!novoModulo) {
+            errorCode = 400
+            throw new Error("Parâmetro body não enviado.")
+        }
+
+        await editarTurmaDeModulo(id, novoModulo)
+
+        res.status(200).send(`Modulo da turma de id: ${id} alterado para ${novoModulo}.`)
     } catch (err: any) {
         res.status(errorCode).end(err.message)
     }

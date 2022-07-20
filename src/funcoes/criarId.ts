@@ -8,9 +8,7 @@ export const criarId = async (tabela:string) => {
         return obj.id
     })
 
-    const ultimoId = Number(Math.max(...ids))
-
-    const newId = ultimoId+1
+    const newId = Number(Math.max(...ids))+1
 
     return newId
 }
