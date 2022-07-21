@@ -14,7 +14,7 @@ const createTables = () => connection
       CREATE TABLE IF NOT EXISTS LabeSystem_turma(
          id VARCHAR(255) PRIMARY KEY,
          nome VARCHAR(255) NOT NULL,
-         modulo VARCHAR(255) DEFAULT 0
+         modulo INT DEFAULT 0
       );             
       
       CREATE TABLE IF NOT EXISTS LabeSystem_hobby(

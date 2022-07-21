@@ -1,0 +1,14 @@
+
+//////ENDPOINTS DE TURMA
+
+//1 CRIAR NOVA TURMA
+
+POST http://localhost:3003/turma 
+Content-Type: application/json
+
+{
+    "nome":"turma da xuxa",
+    "modulo":3
+}
+
+###
