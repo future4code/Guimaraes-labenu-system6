@@ -28,27 +28,7 @@ app.get('/turmas', async (req: Request, res: Response) => {
 })
 
 // CRIAR TURMA
-app.post('/turma', async (req: Request, res: Response) => {
-    let errorCode = 500
-    try {
-        const id = await criarId('LabeSystem_turma')
-
-        const { nome, modulo } = req.body
-
-        if (!nome || !modulo) {
-            errorCode = 400
-            throw new Error("Parâmetros não podem estar vazios.")
-        }
-
-        const novaTurma = new Turma(nome, modulo)
-
-        await criarTurma(id, novaTurma)
-
-        res.status(200).send(`Turma ${novaTurma.nome} criada com sucesso!`)
-    } catch (err: any) {
-        res.status(errorCode).end(err.message)
-    }
-})
+app.post('/turma', criarTurma)
 
 // EDITAR TURMA DE MODULO
 app.put('/turma/:id', async (req: Request, res: Response) => {
