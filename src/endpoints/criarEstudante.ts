@@ -18,7 +18,7 @@ export const criarEstudante = async (req: Request, res: Response): Promise<void>
         await connection('LabeSystem_estudante')
             .insert(novoEstudante)
 
-            res.status(200).send(novoEstudante)
+            res.status(200).send(`Estudante ${nome} cadastrada(o) com sucesso.`)
     } catch (e: any) {
         res.send(e.message).status(400)
     }
