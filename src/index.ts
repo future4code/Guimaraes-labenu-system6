@@ -1,7 +1,5 @@
 import app from "./app";
 import express, { Response, Request } from "express";
-import { criarId } from "./funcoes/criarId";
-import { Turma } from "./classes/Turma";
 import { criarTurma } from "./endpoints/criarTurma";
 import { buscarTurmas } from "./endpoints/buscarTurmas";
 import { editarTurmaDeModulo } from "./endpoints/editarTurmaDeModulo";
