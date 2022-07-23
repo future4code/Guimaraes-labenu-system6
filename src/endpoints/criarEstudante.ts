@@ -3,7 +3,7 @@ import { v4 as generateId } from 'uuid';
 import connection from "../data/connection"
 import { Estudante } from "../data/classes/estudanteClass"
 
-export const criarEstudante = async(req: Request,res: Response): Promise<void> => {
+export const criarEstudante = async (req: Request, res: Response): Promise<void> => {
     try {
         const id = generateId()
         const { nome, email, data_nasc, turma_id, hobbies } = req.body
@@ -15,7 +15,10 @@ export const criarEstudante = async(req: Request,res: Response): Promise<void> =
             turma_id,
             hobbies)
 
-        console.log(novoEstudante)
+        await connection('LabeSystem_estudante')
+            .insert(novoEstudante)
+
+            res.status(200).send(novoEstudante)
     } catch (e: any) {
         res.send(e.message).status(400)
     }
