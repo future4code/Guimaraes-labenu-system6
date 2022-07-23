@@ -3,7 +3,7 @@ import { Usuario } from "./usuario";
 export class Estudante extends Usuario {
     private hobbies: string;
 
-    constructor(id: number,
+    constructor(id: string,
         nome: string,
         email: string,
         data_nasc: string,

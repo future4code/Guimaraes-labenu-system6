@@ -1,11 +1,11 @@
 export class Usuario {
-    private id: number;
+    private id: string;
     private nome: string;
     private email: string;
     private data_nasc: string;
     private turma_id: number;
 
-    constructor(id: number,
+    constructor(id: string,
         nome: string,
         email: string,
         data_nasc: string,

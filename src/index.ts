@@ -3,6 +3,7 @@ import express, { Response, Request } from "express";
 import { criarTurma } from "./endpoints/criarTurma";
 import { buscarTurmas } from "./endpoints/buscarTurmas";
 import { editarTurmaDeModulo } from "./endpoints/editarTurmaDeModulo";
+import { criarEstudante } from "./endpoints/criarEstudante";
 
 // TESTAR CONEXÃO
 app.get('/ping', (req: Request, res: Response) => {
@@ -27,6 +28,9 @@ app.get('/turmas', async (req: Request, res: Response) => {
 
 // CRIAR TURMA
 app.post('/turma', criarTurma)
+
+// CRIAR ESTUDANTE
+app.post('/estudante', criarEstudante)
 
 // EDITAR TURMA DE MODULO
 app.put('/turma/:id', async (req: Request, res: Response) => {
