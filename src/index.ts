@@ -1,51 +1,73 @@
 import app from "./app";
 import express, { Response, Request } from "express";
+import {criarEstudante} from "./endpoints/criarEstudante"
 import { criarId } from "./funcoes/criarId";
-import { Turma } from "./classes/Turma";
 import { criarTurma } from "./endpoints/criarTurma";
-import { buscarTurmas } from "./endpoints/buscarTurmas";
-import { editarTurmaDeModulo } from "./endpoints/editarTurmaDeModulo";
+import { buscarTurma } from "./endpoints/buscarTurmas";
+import { editarModuloTurma } from "./endpoints/editarTurmaDeModulo";
+import { criarDocente } from "./endpoints/criarDocente";
+import { buscarDocente } from "./endpoints/buscarDocente";
+import { buscarEstudante } from "./endpoints/buscarEstudantes";
+import { editarEstudanteTurma } from "./endpoints/editarEstudanteDeTurma";
+import { buscarEstudantePeloNome } from "./endpoints/buscarEstudantesPeloNome";
+import { editarDocenteTurma } from "./endpoints/editarDocenteDeTurma";
+import { buscarDocentePeloNome } from "./endpoints/buscarDocentesPeloNome";
+import { criarHobby } from "./endpoints/criarNovoHobby";
+import { buscarHobby } from "./endpoints/buscarHobbies";
+import { adicionarHobbyPorId } from "./endpoints/adicionarHobbyAoEstudante";
+import { adicionarEspecialidadePorId } from "./endpoints/adicionarEspecialidadeAoDocente";
+import { criarEspecialidade } from "./endpoints/criarNovaEspecialidade";
+import { buscarEspecialidade } from "./endpoints/buscarEspecialidades";
 
-// TESTAR CONEXÃO
-app.get('/ping', (req: Request, res: Response) => {
-    try {
-        res.status(200).send("Pong")
-    } catch (err) {
-        res.status(500).end("Deu algo de errado")
-    }
-})
+/* ____________________________________ENDPOINTS____________________________________ */
 
-// BUSCAR TURMAS ATIVAS
-app.get('/turmas', async (req: Request, res: Response) => {
-    let errorCode = 500
-    try {
-        const turmas = await buscarTurmas()
+// ADD ESPECIALIDADE AO DOCENTE
+app.post('/especialidade/:docente_id', adicionarEspecialidadePorId)
 
-        res.status(200).send(turmas)
-    } catch (err: any) {
-        res.status(errorCode).end(err.message)
-    }
-})
+// ADD HOBBY AO ALUNO
+app.post('/hobby/:estudante_id', adicionarHobbyPorId)
+
+// CONSULTAR DOCENTES
+app.get('/docente', buscarDocente)
+
+// CONSULTAR DOCENTE PELO NOME
+app.get('/docente/:nome', buscarDocentePeloNome)
+
+// CONSULTAR ESTUDANTES
+app.get('/estudante', buscarEstudante)
+
+// CONSULTAR ESTUDANTES PELO NOME
+app.get('/estudante/:nome', buscarEstudantePeloNome)
+
+// CONSULTAR HOBBIES
+app.get('/hobby', buscarHobby)
+
+// CONSULTAR ESPECIALIDADES
+app.get('/especialidade', buscarEspecialidade)
+
+// CONSULTAR TURMAS ATIVAS
+app.get('/turmas', buscarTurma)
 
 // CRIAR TURMA
 app.post('/turma', criarTurma)
 
+// CRIAR ESTUDANTE
+app.post('/estudante', criarEstudante)
+
+// CRIAR DOCENTE
+app.post('/docente', criarDocente)
+
+// CRIAR NOVA ESPECIALIDADE
+app.post('/especialidade', criarEspecialidade)
+
+// CRIAR NOVO HOBBY
+app.post('/hobby', criarHobby)
+
 // EDITAR TURMA DE MODULO
-app.put('/turma/:id', async (req: Request, res: Response) => {
-    let errorCode = 500
-    try {
-        const id = Number(req.params.id)
-        const novoModulo = req.body.modulo
+app.put('/turma/:id', editarModuloTurma)
 
-        if (!novoModulo) {
-            errorCode = 400
-            throw new Error("Parâmetro body não enviado.")
-        }
+// EDITAR TURMA DO ESTUDANTE
+app.put('/estudante/:id', editarEstudanteTurma)
 
-        await editarTurmaDeModulo(id, novoModulo)
-
-        res.status(200).send(`Modulo da turma de id: ${id} alterado para ${novoModulo}.`)
-    } catch (err: any) {
-        res.status(errorCode).end(err.message)
-    }
-})
+// EDITAR TURMA DO DOCENTE
+app.put('/docente/:id', editarDocenteTurma)

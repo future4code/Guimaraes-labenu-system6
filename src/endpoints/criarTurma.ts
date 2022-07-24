@@ -7,10 +7,8 @@ export const criarTurma = async(req: Request,res: Response): Promise<void> => {
     try{
         const id = generateId()
         const { nome, modulo } = req.body
-    
-        console.log("Dados do body",req.body);
-        
-        if (!nome || !modulo) {
+           
+        if (!nome) {
           throw new Error("Algum parâmetro está faltando, verifique o body.")
         }
     

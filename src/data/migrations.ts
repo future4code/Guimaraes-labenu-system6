@@ -111,3 +111,123 @@ createTables()
    .then(insertHobbyEstudante)
    .then(insertEspecialidadeDocente)
    .finally(closeConnection);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+   import { Request, Response } from "express"
+import { v4 as generateId } from 'uuid';
+import connection from "../data/connection"
+import { estudanteClass } from "../data/classes/estudanteClass";
+
+
+//terminar a logica que checa se a id do hobby existe e pega o hobby daquela id
+
+
+export const criarEstudante = async(req: Request,res: Response): Promise<void> => {
+    try{
+        const id = generateId()
+        const { nome, email,data_nasc,turma_id,hobby_id } = req.body
+        console.log("Dados do body",req.body);   
+
+        if (!nome || !email || !data_nasc || !turma_id) {
+          throw new Error("Algum parâmetro está faltando, verifique o body.")
+        }
+        
+        let idChecagem = await connection("LabeSystem_hobby").select("*").where("id", hobby_id);
+        console.log("deu god",idChecagem)
+
+        let idTurma = await connection("LabeSystem_turma").select("*").where("id", turma_id);
+        console.log("deu god",idTurma)
+
+        if(idChecagem.length >0){
+          const novoEstudante:estudanteClass = new estudanteClass(
+            id,
+            nome,
+            email,
+            data_nasc,
+            turma_id,
+            hobby_id
+          )
+
+          const novoEstudanteMap = {
+            id:novoEstudante.getId(),
+            nome:novoEstudante.getNome(),
+            email:novoEstudante.getEmail(),
+            data_nasc:novoEstudante.getNascimento(),
+            turma_id:novoEstudante.getTurmaID()
+          }
+        console.log(novoEstudanteMap)
+          let hobby = {
+            id: generateId(),
+            estudante_id: novoEstudante.getId(),
+            hobby_id:novoEstudante.getHobby()
+          }
+          await connection('LabeSystem_estudante')
+          .insert(novoEstudanteMap)
+
+          await connection('LabeSystem_estudante_hobby')
+          .insert(hobby)
+
+
+          res.send(`estudante ${nome} matriculado com sucesso, lista de hobbies atualizada.`)
+
+
+
+        }
+          if(hobby_id === "0" || hobby_id === ""){
+
+            const novoEstudante:estudanteClass = new estudanteClass(
+              id,
+              nome,
+              email,
+              data_nasc,
+              turma_id,
+              hobby_id
+            )
+  
+            const novoEstudanteMap = {
+              id:novoEstudante.getId(),
+              nome:novoEstudante.getNome(),
+              email:novoEstudante.getEmail(),
+              data_nasc:novoEstudante.getNascimento(),
+              turma_id:novoEstudante.getTurmaID()
+            }
+          console.log(novoEstudanteMap)
+            
+            await connection('LabeSystem_estudante')
+            .insert(novoEstudanteMap)
+
+  
+            res.send(`estudante ${nome} matriculado com sucesso na turma, entretanto, nenhum hobby foi cadastrado.`)
+
+          }
+
+
+        {
+          throw new Error("o ID do hobby nao é valido")
+        }
+
+
+    }
+    catch (e: any) {
+        res.send(e.message).status(400)
+      }
+    } */
+

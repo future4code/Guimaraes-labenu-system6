@@ -8,10 +8,10 @@
 	},
 	{
 		"id":2,
-		"nome": "João",
-		"email": "joao@gmail.com",
-        "data_nasc":"1995-03-12",
-        "turma_id":"2"
+		"nome": "Lucas",
+		"email": "lucas@gmail.com",
+        "data_nasc":"1991-02-26",
+        "turma_id":"1"
 	},
     {
 		"id":3,
@@ -19,5 +19,12 @@
 		"email": "daniel@gmail.com",
         "data_nasc":"2008-01-22",
         "turma_id":"3"
+	},
+    {
+		"id":4,
+		"nome": "Carolina",
+		"email": "carolina@gmail.com",
+        "data_nasc":"1970-11-30",
+        "turma_id":"2"
 	}
 ]
