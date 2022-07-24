@@ -1,4 +1,4 @@
-## LabenuSystem :bookmark_tabs:
+## LabeSystem :bookmark_tabs:
 
 ##O que é?
 
