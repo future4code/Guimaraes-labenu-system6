@@ -1,11 +1,11 @@
-export class estudanteClass {    
+export class docenteClass {    
     constructor(
         private id: string,
         private nome: string,
         private email: string,
         private data_nasc: Date,
         private turma_id: string,
-        private hobby_id?:string
+        private especialidade_id?:string
     
     ) {
         this.id = id
@@ -13,7 +13,7 @@ export class estudanteClass {
         this.email = email
         this.data_nasc = data_nasc
         this.turma_id = turma_id
-        this.hobby_id = hobby_id
+        this.especialidade_id = especialidade_id
 
 
     }
@@ -37,11 +37,11 @@ export class estudanteClass {
         return this.turma_id
       }
     
-    public getHobby (): any {
-        return this.hobby_id
+    public getEspecialidade (): any {
+        return this.especialidade_id
       }
 
-    public setHobby(hobby: any) {
-    this.hobby_id = hobby;
+    public setEspecialidade(hobby: any) {
+    this.especialidade_id = hobby;
     }
   }
