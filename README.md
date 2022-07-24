@@ -1,16 +1,16 @@
-## LabeSystem :bookmark_tabs:
+## *LabeSystem* :bookmark_tabs:
 
-##O que é?
+##*O que é?*
 
 Aplicação para gerenciamento de escolas backend desenvolvida em node.js utilizando:
 
-→Cors
-→Express
-→Knex
-→Uuid
-→Typescript
+*→Cors*
+*→Express*
+*→Knex*
+*→Uuid*
+*→Typescript*
 
-###O que faz?
+###*O que faz?*
 
 É possivel gerenciar um sistema escolar criando estudantes, docentes e turma. Matricular docentes e estudantes em algum turma, trocar turma de módulo etc... Segue documentação sobre como utilizar a API. A mesma também pode ser encontrado no arquivo *REQUEST.REST*
 
