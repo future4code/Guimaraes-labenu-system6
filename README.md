@@ -12,7 +12,7 @@ Aplicação para gerenciamento de escolas backend desenvolvida em node.js utiliz
 
 ###*O que faz?*
 
-É possivel gerenciar um sistema escolar criando estudantes, docentes e turmas. Matricular docentes e estudantes em alguma turma, trocar turma de módulo inserir hobbies para os estudantes etc... Segue documentação sobre como utilizar a API. A mesma também pode ser encontrada no arquivo *REQUEST.REST*
+É possivel gerenciar um sistema escolar criando estudantes, docentes e turmas. Matricular docentes e estudantes em alguma turma, trocar turma de módulo, inserir hobbies para os estudantes, etc... Segue documentação sobre como utilizar a API. A mesma também pode ser encontrada no arquivo *REQUEST.REST*
 
 
         → ENDPOINTS DE TURMA
