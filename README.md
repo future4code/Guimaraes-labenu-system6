@@ -174,7 +174,7 @@ Aplicação para gerenciamento de escolas backend desenvolvida em node.js utiliz
         }
         ###
 
-        3 - CADASTRAR UMA ESPECIALIDADE PARA DOCENTE E RETORNAR A LISTA DE HOBBIES DESSE DOCENTE.
+        3 - CADASTRAR UMA ESPECIALIDADE PARA DOCENTE E RETORNAR A LISTA DE ESPECIALIDADES DESSE DOCENTE.
 
         POST http://localhost:3003/especialidade/1
         Content-Type: application/json
