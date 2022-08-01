@@ -1,33 +1,187 @@
-## LabenuSystem:
+## *LabeSystem* :bookmark_tabs:
 
-Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
+##*O que é?*
 
-Ele deve possuir, ao menos, as 3 entidades importantes:
+Aplicação para gerenciamento de escolas backend desenvolvida em node.js utilizando:
 
-1. Estudantes 
+*→Cors*
+*→Express*
+*→Knex*
+*→Uuid*
+*→Typescript*
 
-    Representa estudantes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e os principais hobbies dele. 
+###*O que faz?*
 
-2. Docente
+É possivel gerenciar um sistema escolar criando estudantes, docentes e turmas. Matricular docentes e estudantes em alguma turma, trocar turma de módulo, inserir hobbies para os estudantes, etc... Segue documentação sobre como utilizar a API. A mesma também pode ser encontrada no arquivo *REQUEST.REST*
 
-    Representa docentes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e todas as especialidades dele. Há 7 especialidades: React, Redux, CSS, Testes, Typescript, Programação Orientada a Objetos e Backend
 
-3. Turma
+        → ENDPOINTS DE TURMA
 
-    Toda turma é composta das seguintes características: id, nome, data de início, data de término, lista de professores responsáveis, uma lista de alunos e módulo atual em que a turma está.
+        1 - CONSULTAR TODAS AS TURMAS
 
-    O módulo pode assumir os valores de 1 a 7 ou `undefined`, indicando que as aulas dessa turma ainda não começaram. Para esse exercício, vamos considerar que existam dois tipos de turma: integral ou noturna. Há uma restrição para o nome das turmas noturnas: tem que terminar com `-na-night`.
+        GET  http://localhost:3003/turmas
+        Content-Type: application/json
+        ###
 
-As funcionalidades básicas são:
+        2 - CRIAR NOVA TURMA
 
-→ Criar estudante;
+        POST http://localhost:3003/turma 
+        Content-Type: application/json
+        //PARA INCIAR UMA TURMA MODULO 0, PASSE APENAS O NOME NO BODY
 
-→ Criar docente;
+        {
+            "nome":"Montengro",
+            "modulo":4
+        }
+        ###
 
-→ Criar turma;
+        3 - EDITAR MODULO TURMA
 
-→ Adicionar estudante na turma;
+        PUT http://localhost:3003/turma/1
+        Content-Type: application/json
 
-→ Adicionar docente na turma;
+        {
+            "modulo":"0"
+        }
+        ###
 
-→ Pegar a idade de algum estudante a partir do id
+
+        → ENDPOINTS DE ESTUDANTE
+
+        1 - CONSULTAR TODOS OS ESTUDANTES
+
+        GET  http://localhost:3003/estudante
+        Content-Type: application/json
+        ###
+
+        1.2 - CONSULTAR ESTUDANTE PELO NOME OU PARTE DELE
+
+        GET  http://localhost:3003/estudante/luc
+        Content-Type: application/json
+        ###
+
+        2 - CRIAR NOVO ESTUDANTE
+
+        POST http://localhost:3003/estudante 
+        Content-Type: application/json
+        //USE "Hobby_id" 0 PARA NÃO CADASTRAR NENHUM HOBBY
+
+        {
+            "nome":"lucaslucas",
+            "email":"lucaslucas@gmail.com",
+            "data_nasc":"1991-02-26",
+            "turma_id":"1",
+            "hobby_id":"1"
+        }
+        ###
+
+        3 - EDITAR TURMA DO ESTUDANTE
+
+        PUT http://localhost:3003/estudante/1
+        Content-Type: application/json
+
+        {
+            "turma_id":"2"
+        }
+        ###
+
+        → ENDPOINTS DE DOCENTE
+
+        1 - CONSULTAR TODOS OS DOCENTES
+
+        GET  http://localhost:3003/docente
+        Content-Type: application/json
+        ###
+
+        1.2 - CONSULTAR DOCENTE PELO NOME OU PARTE DELE
+
+        GET  http://localhost:3003/docente/P
+        Content-Type: application/json
+        ###
+
+        2 - CRIAR NOVO DOCENTE
+
+        POST http://localhost:3003/docente
+        Content-Type: application/json
+        //USE "especialidade_id" 0 PARA NÃO CADASTRAR NENHUM HOBBY
+
+        {
+            "nome":"pedrinho",
+            "email":"pedrinho@gmail.com",
+            "data_nasc":"1991-07-28",
+            "turma_id":"3",
+            "especialidade_id":"5"
+        }
+        ###
+
+        3 - EDITAR TURMA DO DOCENTE
+
+        PUT http://localhost:3003/docente/3
+        Content-Type: application/json
+
+        {
+            "turma_id":"5"
+        }
+        ###
+
+        → ENDPOINTS DE HOBBIES
+
+
+        1 - CONSULTAR TODOS OS HOBBIES
+
+        GET  http://localhost:3003/hobby
+        Content-Type: application/json
+        ###
+
+
+        2 - CRIAR NOVO HOBBY
+
+        POST http://localhost:3003/hobby 
+        Content-Type: application/json
+
+        {
+            "nome":"descansar"
+        }
+        ###
+
+        3 - CADASTRAR UM HOBBY PARA ESTUDANTE E RETORNAR A LISTA DE HOBBIES DESSE ESTUDANTE.
+
+        POST http://localhost:3003/hobby/1
+        Content-Type: application/json
+
+        {
+            "estudante_id":"1",
+            "hobby_id":"5"
+        }
+        ###
+
+        → ENDPOINTS DE ESPECIALIDADE
+
+        1 - CONSULTAR TODAS AS ESPECIALIDADES
+
+        GET  http://localhost:3003/especialidade
+        Content-Type: application/json
+        ###
+
+
+        2 - CRIAR NOVA ESPECIALIDADE
+
+        POST http://localhost:3003/especialidade 
+        Content-Type: application/json
+
+        {
+            "nome":"Angular"
+        }
+        ###
+
+        3 - CADASTRAR UMA ESPECIALIDADE PARA DOCENTE E RETORNAR A LISTA DE ESPECIALIDADES DESSE DOCENTE.
+
+        POST http://localhost:3003/especialidade/1
+        Content-Type: application/json
+
+        {
+            "docente_id":"1",
+            "especialidade_id":"6"
+        }
+        ###
+

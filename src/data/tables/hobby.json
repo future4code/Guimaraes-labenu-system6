@@ -1,0 +1,31 @@
+[
+	{
+		"id":1,
+		"nome": "Jogar vídeo game"
+	},
+	{
+		"id":2,
+		"nome": "Ler"
+	},
+    {
+		"id":3,
+		"nome": "Assistir série"
+	},
+    {
+		"id":4,
+		"nome": "Pintar"
+	},
+    {
+		"id":5,
+		"nome": "Tricotar"
+	},
+    {
+		"id":6,
+		"nome": "Investigação Criminal"
+	},
+    {
+		"id":7,
+		"nome": "Ser super-herói"
+	}
+
+]
